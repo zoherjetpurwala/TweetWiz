@@ -51,7 +51,7 @@ export function LandingPageComponent() {
     setIsGenerating(true);
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/generate-tweets",
+        "https://tweetwiz-backend.onrender.com/api/generate-tweets",
         {
           params: { prompt },
           withCredentials: true,

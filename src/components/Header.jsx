@@ -6,12 +6,12 @@ import axios from 'axios';
 
 const Header = ({ user, userLoading }) => {
   const handleSignIn = () => {
-    window.location.href = "http://localhost:8080/auth/twitter";
+    window.location.href = "https://tweetwiz-backend.onrender.com/auth/twitter";
   };
 
   const handleSignOut = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/auth/logout", {
+      const response = await axios.get("https://tweetwiz-backend.onrender.com/auth/logout", {
         withCredentials: true,
       });
       if (response.status === 200) {

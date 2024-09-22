@@ -8,7 +8,7 @@ export const useUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/user", {
+        const res = await axios.get("https://tweetwiz-backend.onrender.com/api/user", {
           withCredentials: true,
         });
         setUser(res.data);
