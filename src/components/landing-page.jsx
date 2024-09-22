@@ -26,13 +26,14 @@ export function LandingPageComponent() {
         content:
           "Just learned about the power of AI in content creation. Mind = blown! 🤯 #AI #ContentCreation",
         author: "TechEnthusiast",
+        authorName: "Zoher Jetpurwala",
         image: "https://avatar.iran.liara.run/public/25",
       },
       {
         id: 2,
-        content:
-          "Enjoying a cup of coffee while watching the sunrise. Simple pleasures are the best. ☕️🌅 #MorningVibes",
-        author: "CoffeeAddict",
+        content: "Yeeeeeaeaeaaeaaaaaaaaaaaah!!!! ☕️🌅 #MorningVibes",
+        author: "yeaaaaaaahh",
+        authorName: "Puneet SuperStar",
         image: "https://avatar.iran.liara.run/public/26",
       },
       {
@@ -40,6 +41,7 @@ export function LandingPageComponent() {
         content:
           "New study shows that regular exercise can improve cognitive function. Time to hit the gym! 💪🧠 #HealthyLiving",
         author: "FitnessGuru",
+        authorName: "Rohit Sarode",
         image: "https://avatar.iran.liara.run/public/27",
       },
     ]);
@@ -79,7 +81,7 @@ export function LandingPageComponent() {
       }}
     >
       <Header user={user} userLoading={userLoading} />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8">
         {user ? (
           <>
             <TweetForm
@@ -119,7 +121,7 @@ export function LandingPageComponent() {
               </Button>
             </motion.div>
             <motion.div
-              className="lg:w-3/4 2xl:w-2/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 place-items-center pb-16"
+              className="lg:w-3/4 2xl:w-2/4 mx-auto flex flex-wrap justify-center gap-6 pb-16"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -132,10 +134,10 @@ export function LandingPageComponent() {
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`bg-white flex flex-col gap-4 bg-opacity-10 backdrop-filter border border-blue-200 lg:max-w-96 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:shadow-2xl transform  transition-all duration-300 ${
+                    className={`bg-white flex flex-col gap-4 bg-opacity-10 backdrop-filter border border-blue-200 rounded-lg shadow-lg p-5 hover:shadow-2xl transform transition-all duration-300 ${
                       index === 2
-                        ? "md:col-span-2 lg:col-span-2 mx-auto lg:max-w-96"
-                        : ""
+                        ? "w-full lg:w-full mx-auto"
+                        : "w-full md:w-[48%] lg:w-[48%]"
                     }`}
                   >
                     <div className="flex items-center gap-2">
