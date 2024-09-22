@@ -1,9 +1,5 @@
-"use client";
-
-// src/components/LandingPageComponent.jsx
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "./Header";
 import TweetForm from "./TweetForm";
@@ -17,7 +13,6 @@ export function LandingPageComponent() {
   const [tweets, setTweets] = useState([]);
   const [generatedTweets, setGeneratedTweets] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setTweets([
@@ -144,7 +139,7 @@ export function LandingPageComponent() {
                       <img src={tweet.image} alt="" width={36} height={36} />
                       <div className="flex flex-col">
                         <span className="text-blue-200 font-semibold">
-                          Zoher Jetpurwala
+                          {tweet.authorName}
                         </span>
                         <span className="text-gray-400 text-sm">
                           @{tweet.author}
