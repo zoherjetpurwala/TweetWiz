@@ -47,7 +47,7 @@ export function LandingPageComponent() {
     setIsGenerating(true);
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/generate-tweets",
+        `${import.meta.env.VITE_BACKEND_URL}/api/generate-tweets`,
         {
           params: { prompt },
           withCredentials: true,
@@ -61,9 +61,9 @@ export function LandingPageComponent() {
     }
   };
 
-    const handleSignIn = () => {
-      window.location.href = "http://localhost:8080/auth/twitter";
-    };
+  const handleSignIn = () => {
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/twitter`;
+  };
 
   return (
     <motion.div
