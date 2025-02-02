@@ -7,6 +7,7 @@ import TweetList from "./TweetList";
 import Footer from "./Footer";
 import { useUser } from "../hooks/useUser";
 import { Button } from "./ui/button";
+import { RiTwitterXLine } from "react-icons/ri";
 
 export function LandingPageComponent() {
   const { user, loading: userLoading } = useUser();
@@ -46,7 +47,7 @@ export function LandingPageComponent() {
     setIsGenerating(true);
     try {
       const response = await axios.get(
-        "https://tweetwiz-backend.onrender.com/api/generate-tweets",
+        "http://localhost:8080/api/generate-tweets",
         {
           params: { prompt },
           withCredentials: true,
@@ -59,6 +60,10 @@ export function LandingPageComponent() {
       setIsGenerating(false);
     }
   };
+
+    const handleSignIn = () => {
+      window.location.href = "http://localhost:8080/auth/twitter";
+    };
 
   return (
     <motion.div
@@ -76,7 +81,7 @@ export function LandingPageComponent() {
       }}
     >
       <Header user={user} userLoading={userLoading} />
-      <main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow w-full items-center px-4 sm:px-6 lg:px-8 py-8">
         {user ? (
           <>
             <TweetForm
@@ -93,9 +98,9 @@ export function LandingPageComponent() {
           <div>
             <motion.div
               className="text-5xl font-bold flex flex-col justify-center items-center text-center pt-16"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, filter: "blur(10px)", y: 0 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: -15 }}
+              transition={{ duration: 0.8 }}
             >
               <h1 className="md:text-7xl text-5xl font-extrabold text-center mb-5 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                 AI-Powered <span className="text-blue-400">Tweets</span>,
@@ -107,19 +112,20 @@ export function LandingPageComponent() {
                 you.
               </p>
               <Button
-                // onClick={handleSignIn}
+                onClick={handleSignIn}
                 variant="outline"
                 size="lg"
-                className="rounded-lg flex items-center mt-7 mb-16 bg-blue-300 bg-opacity-20 hover:bg-opacity-30 text-white border-blue-200"
+                className="rounded-lg flex items-center mt-7 mb-16 bg-blue-300 bg-opacity-20 hover:bg-opacity-30 text-white border-blue-200 gap-2"
               >
+                <RiTwitterXLine className="w-4 h-4" />
                 Get Started
               </Button>
             </motion.div>
             <motion.div
               className="lg:w-3/4 2xl:w-2/4 mx-auto flex flex-wrap justify-center gap-6 pb-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1 }}
             >
               <AnimatePresence>
                 {tweets.map((tweet, index) => (

@@ -1,17 +1,16 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { LogIn, LogOut } from 'lucide-react';
 import axios from 'axios';
 
 const Header = ({ user, userLoading }) => {
   const handleSignIn = () => {
-    window.location.href = "https://tweetwiz-backend.onrender.com/auth/twitter";
+    window.location.href = "http://localhost:8080/auth/twitter";
   };
 
   const handleSignOut = async () => {
     try {
-      const response = await axios.get("https://tweetwiz-backend.onrender.com/auth/logout", {
+      const response = await axios.get("http://localhost:8080/auth/logout", {
         withCredentials: true,
       });
       if (response.status === 200) {
@@ -23,24 +22,18 @@ const Header = ({ user, userLoading }) => {
   };
 
   return (
-    <nav className="bg-white bg-opacity-10 rounded-xl sm:m-5 m-3 backdrop-filter backdrop-blur-lg">
+    <nav className="bg-white bg-opacity-10 rounded-xl md:mx-36 md:my-8 m-3 backdrop-filter backdrop-blur-lg">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <motion.div
+          <div
             className="flex-shrink-0 flex items-center"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
           >
             <span className="text-blue-100 sm:text-3xl text-2xl font-bold">
               Tweet<span className="text-blue-400">Wiz</span>
             </span>
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className="flex items-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
           >
             {!userLoading && (
               user ? (
@@ -70,7 +63,7 @@ const Header = ({ user, userLoading }) => {
                 </Button>
               )
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </nav>
