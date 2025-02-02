@@ -8,7 +8,7 @@ export const useUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/user", {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
           withCredentials: true,
         });
         setUser(res.data);
